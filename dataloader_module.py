@@ -1,7 +1,4 @@
-"""
-DataLoader module 
 
-"""
 import torch
 import torchaudio ,torchvision
 import os
@@ -174,17 +171,8 @@ class LitKWS(LightningDataModule):
             wave = torch.cat([data, torch.zeros(1,40,1)],dim=-1)
             mels.append(wave)
             labels.append(torch.tensor(self.class_dict[label]))
-            #mels.append(data)
-            #print("mels")
-            #print(mels.shape)
-            #print(mels)
-            #mels2 = torch.zeros(1, 128, 64)
-            #mels2 = torch.FloatTensor(mels2)
-            #source = torch.ones(30, 35, 49)
-            #mels2[:, :, :49] = mels
-
+         
        
-       # mels2 = torch.FloatTensor(mels2)
         labels = torch.stack(labels)
         #wavs = torch.stack(wavs)
         mels = torch.stack(mels)

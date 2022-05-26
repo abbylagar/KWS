@@ -39,7 +39,7 @@ def get_args():
     parser.add_argument('--kernel_size', type=int, default=3, help='kernel size')
     parser.add_argument('--batch_size', type=int, default=128, metavar='N',
                         help='input batch size for training (default: )')
-    parser.add_argument('--max-epochs', type=int, default=50, metavar='N',
+    parser.add_argument('--max-epochs', type=int, default=35, metavar='N',
                         help='number of epochs to train (default: 0)')
     parser.add_argument('--lr', type=float, default=0.001, metavar='LR',
                         help='learning rate (default: 0.0)')
@@ -51,7 +51,7 @@ def get_args():
 
     parser.add_argument("--no-wandb", default=False, action='store_true')
 
-    args = parser.parse_args("")
+    args = parser.parse_args()
     return args
 
 

@@ -1,0 +1,12 @@
+wandb
+Image
+pytorch-lightning 
+torchmetrics
+torch
+torchaudio
+torchvision
+librosa
+argparse
+numpy
+einops
+wandb

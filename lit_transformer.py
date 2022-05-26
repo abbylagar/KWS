@@ -36,8 +36,8 @@ def init_weights_vit_timm(module: nn.Module):
 
 
 class LitTransformer(LightningModule):
-    def __init__(self, num_classes=37, lr=0.001, max_epochs=30, depth=12, embed_dim=512,
-                 head=4, patch_dim=512, seqlen=16, **kwargs):
+    def __init__(self, num_classes=37, lr=0.001, max_epochs=30, depth=12, embed_dim=80,
+                 head=4, patch_dim=80, seqlen=32, **kwargs):
         super().__init__()
         self.save_hyperparameters()
         self.encoder = Transformer(dim=embed_dim, num_heads=head, num_blocks=depth, mlp_ratio=4.,
