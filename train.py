@@ -80,6 +80,12 @@ if __name__ == "__main__":
     if args.no_wandb == False :
      wandb_logger = WandbLogger(project="KWS")
 
+
+    # define a metric we are interested in the minimum of
+    wandb.define_metric("test_loss", summary="min")
+    # define a metric we are interested in the maximum of
+    wandb.define_metric("test_acc", summary="max")
+
     datamodule = LitKWS(
         class_dict=CLASS_TO_IDX , 
         batch_size=args.batch_size,
