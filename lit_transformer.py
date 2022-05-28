@@ -91,14 +91,14 @@ class LitTransformer(LightningModule):
         avg_acc = torch.stack([x["test_acc"] for x in outputs]).mean()
         self.log("test_loss", avg_loss, on_epoch=True, prog_bar=True)
         self.log("test_acc", avg_acc*100., on_epoch=True, prog_bar=True)
-        self.log("avg_test_acc": avg_acc)
+        #self.log("avg_test_acc",avg_acc,avg_acc*100.,)
         #return {}
     
     def on_test_end(self,outputs):
         # define a metric we are interested in the maximum of
         #self.define_metric("test_acc", summary="max")
        #max_avg_loss = torch.stack([x["test_loss"] for x in outputs]).mean()
-        max_avg_acc = torch.stack([x["avg_test_acc"] for x in outputs]).max()
+        max_avg_acc = torch.stack([x["test_acc"] for x in outputs]).max()
         self.log("max_test_acc", max_avg_acc*100.)
     
     def on_validation_end(self, outputs):
