@@ -82,9 +82,9 @@ if __name__ == "__main__":
 
 
     # define a metric we are interested in the minimum of
-    wandb.define_metric("test_loss", summary="min")
+    #wandb.define_metric("test_loss", summary="min")
     # define a metric we are interested in the maximum of
-    wandb.define_metric("test_acc", summary="max")
+    #wandb.define_metric("test_acc", summary="max")
 
     datamodule = LitKWS(
         class_dict=CLASS_TO_IDX , 
