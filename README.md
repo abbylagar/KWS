@@ -41,38 +41,29 @@ steps before training and testing the model
 ```
 
 
-
-### Testing the model
-Datasets and pretrained model during this part.
-
-Sample run in the Drinks_detection.ipynb
+### 4. Train the model
+Run below code: 
 ```
-!python3 test.py
+python3 train.py
 ```
-Output metrics:
-
-
-![image](https://user-images.githubusercontent.com/67377766/166150634-35123488-34a6-481f-909a-76b7d593b449.png)
-
-### Training the model
 Sample run in the train.ipynb .  
 If wandb visualization prompts ,
 enter 2 (Use an existing W&B account , project name:  KWS)
 enter 3 (No visualization)
-```
-!python3 train.py
-```
+
 Max accuracy after 35 epochs 
 
-![image](https://user-images.githubusercontent.com/67377766/166149359-fd1f2af6-2444-4f56-ac29-5583a53ee5c3.png)
+![image](https://user-images.githubusercontent.com/67377766/170887714-75ce2ffe-c9a9-4d97-ba66-27926c444c66.png)
 
 
-### Sample Video 
+
+### 5. Test model
+Run below code: 
+
+```
+python3 infer.py 
+```
 Sample video of keyword spotting GUI in outputs folder filename: sample.mp4
 
-```
-!python3 infer.py 
-```
+![image](https://user-images.githubusercontent.com/67377766/170887639-5c6de0a0-ea00-469f-9d6d-8b8826a9c58e.png)
 
-
-![image](https://user-images.githubusercontent.com/67377766/166147798-7cacd8d7-eb02-45e4-834d-11a782d92170.png)
