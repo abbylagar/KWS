@@ -14,9 +14,7 @@ torchaudio
     ├── checkpoints               # Pretrained weights
     ├── outputs                   # recorded voice folder
     ├── samples                   # Raw video
-    ├── datasets                  # Dataset folder
-    │   └── python          
-    │         └── drinks          # Drinks Dataset
+    ├── speechcommands            # Dataset folder
     ├── train.py                  # training code
     ├── infer.py                  # run keyword spotting app
     └── README.md
