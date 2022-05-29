@@ -105,9 +105,7 @@ class LitTransformer(LightningModule):
         return self.on_test_end(outputs)
      """   
     def validation_step(self, batch, batch_idx):
-        if trainer.global_step == 0:
-            print('enter here')
-            wandb.define_metric('test_acc',summary='max')
+       
         return self.test_step(batch, batch_idx)
 
     def validation_epoch_end(self, outputs):
