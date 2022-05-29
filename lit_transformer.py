@@ -87,9 +87,6 @@ class LitTransformer(LightningModule):
         return {"y_hat": y_hat, "test_loss": loss, "test_acc": acc}
 
     def test_epoch_end(self, outputs):
-        if self.current_epoch == 0:
-            print('enter here')
-            self.define_metric('test_acc',summary='max')
         avg_loss = torch.stack([x["test_loss"] for x in outputs]).mean()
         avg_acc = torch.stack([x["test_acc"] for x in outputs]).mean()
         self.log("test_loss", avg_loss, on_epoch=True, prog_bar=True)
@@ -108,6 +105,9 @@ class LitTransformer(LightningModule):
         return self.on_test_end(outputs)
      """   
     def validation_step(self, batch, batch_idx):
+        if trainer.global_step == 0:
+            print('enter here')
+            wandb.define_metric('test_acc',summary='max')
         return self.test_step(batch, batch_idx)
 
     def validation_epoch_end(self, outputs):
