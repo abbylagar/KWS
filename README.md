@@ -13,7 +13,6 @@ torchaudio
     .
     ├── checkpoints               # Pretrained weights
     ├── outputs                   # recorded voice folder
-    ├── samples                   # Raw video
     ├── speechcommands            # Dataset folder
     ├── train.py                  # training code
     ├── infer.py                  # run keyword spotting app
