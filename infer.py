@@ -56,7 +56,7 @@ def get_args():
 
 class InferAudio:
 
-    def __init__(self, chunk=16000, frmat=pyaudio.paInt16, channels=1, rate=16000, py=pyaudio.PyAudio()):
+    def __init__(self, chunk=16000, frmat=pyaudio.paInt32, channels=1, rate=16000, py=pyaudio.PyAudio()):
 
         # Start Tkinter and set Title
         self.main = tkinter.Tk()
@@ -105,18 +105,12 @@ class InferAudio:
             self.frames.append(data)
             #print("* recording")
             #inference   
-            samps = np.frombuffer(data,dtype=np.int16)
+            samps = np.frombuffer(data,dtype=np.int32)
             samps =samps.astype(np.float32)
 
             #print(samps.dtype)
             maxi_new=max(abs(samps))
             
-            #update maximum
-            if maxi_new > maxi:
-                maxi = maxi_new
-            else: 
-                maxi = maxi
-
 
             samps=samps/maxi
             #samps =samps.astype(np.float32)
@@ -181,17 +175,17 @@ if __name__ == "__main__":
 
     model = LitTransformer(num_classes=37, lr=args.lr, epochs=args.max_epochs, 
                         depth=args.depth, embed_dim=args.embed_dim, head=args.num_heads,
-                        patch_dim=4, seqlen=16,)
+                        patch_dim=4, seqlen=32,)
 
-    model = model.load_from_checkpoint(os.path.join('.\checkpoints', "kws_best_acc-v1.ckpt"))
+    model = model.load_from_checkpoint(os.path.join('.\checkpoints', "kws_best_acc.ckpt"))
     model.eval()
     script = model.to_torchscript()
 
     # save for use in production environment
-    model_path = os.path.join('.\checkpoints', "kws_best_acc-v1.pt")
+    model_path = os.path.join('.\checkpoints', "kws_best_acc.pt")
     torch.jit.save(script, model_path)
 
         
-    # Create an object of the ProgramGUI class to begin the program.
+    # KWS GUI .
     guiAUD = InferAudio()
 
