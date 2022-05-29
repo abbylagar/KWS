@@ -110,7 +110,7 @@ if __name__ == "__main__":
                       max_epochs=args.max_epochs, precision=16 if args.accelerator == 'gpu' else 32,
                        logger=wandb_logger if not args.no_wandb else None,
                        callbacks=[model_checkpoint])
-                        if trainer.global_step == 0:
+                    
            
     wandb.define_metric('test_acc',summary='max')
     trainer.fit(model, datamodule=datamodule)
