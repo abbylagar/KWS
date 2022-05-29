@@ -89,7 +89,7 @@ class LitTransformer(LightningModule):
     def test_epoch_end(self, outputs):
         if self.current_epoch == 0:
             print('enter here')
-            wandb.define_metric('test_acc',summary='max')
+            self.define_metric('test_acc',summary='max')
         avg_loss = torch.stack([x["test_loss"] for x in outputs]).mean()
         avg_acc = torch.stack([x["test_acc"] for x in outputs]).mean()
         self.log("test_loss", avg_loss, on_epoch=True, prog_bar=True)
